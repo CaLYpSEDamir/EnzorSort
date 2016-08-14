@@ -1,16 +1,14 @@
-
-$( document ).ready(function() {
-    generate();
-});
-
-//var time = [1, 3, 6, 9, 14, 19, 24, 12, 45];
+//
+//$( document ).ready(function() {
+//    generate();
+//});
 
 function p(el){
     console.log(el);
 }
 
 var numbers = shuffle([1,2,3,4,5, 6, 7, 8, 9]),
-numbers = [1,2,3,4,5, 6, 7, 8, 9],
+    time = [2, 5, 9, 12, 18, 23, 29, 37, 44],
     count = numbers.length,
     width = 600;
     treeManager = new TreeManager(width, count);
@@ -41,14 +39,14 @@ function generate(){
             list.append(
                 elemTmpl.render({val:number})
             );
-        }, 200*(index));
+        }, 500*(index));
     });
 }
 
 function prebuild(){
 	var copyTmpl = $.templates("#copyElem"),
 		treeList = $('.list-copy');
-	
+
 	$(".list-item").each(
         function(index, el){
             var $el = $(el);
@@ -107,11 +105,11 @@ function build(){
                                 (coord[0])+"px,"+
                                 (coord[1])+"px)");
                                 $el.find('span').text(coord[2]);
-//                            }, 1000*j);
-                            }, 100*j);
+                            }, 1000*j);
                     }
                 )
-            }, 1000*index);
+//            }, 5000*index);
+            }, 1000*time[index]);
         }
     );
 }
