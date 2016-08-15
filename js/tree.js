@@ -19,12 +19,11 @@ Tree.prototype.getRanges = function(width, levels){
 	var ranges = [];
 
 	for(var i=0;i<levels;i++){
-		ranges[i+1] = width/((i+1)*2)
+		ranges[i+1] = width/Math.pow(2, i+1);
 	}
 	return ranges;
 }
 
-var p = console.log
 
 Tree.prototype.addOut = function(nodeOut, valOut) {
 
@@ -49,7 +48,6 @@ Tree.prototype.addOut = function(nodeOut, valOut) {
 			if(node.l == null){
 				node.l = new Node(val, node.level+1, node.position*2-1);
 				coords.push([0, Y, 1]);
-
 			} else {
 				addInn(node.l, val);
 			}
@@ -93,7 +91,6 @@ Tree.prototype.sortOut = function(nodeOut){
 
 function TreeManager(width, levels){
 	var items = [];
-
 	this.tree = new Tree(width, levels);
 }
 

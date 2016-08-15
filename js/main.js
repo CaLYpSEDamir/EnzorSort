@@ -1,16 +1,17 @@
-//
-//$( document ).ready(function() {
-//    generate();
-//});
 
-function p(el){
-    console.log(el);
-}
+$( document ).ready(function() {
+    $("#bui").prop('disabled', true);
+    $("#sor").prop('disabled', true);
+});
 
-var numbers = shuffle([1,2,3,4,5, 6, 7, 8, 9]),
-    time = [2, 5, 9, 12, 18, 23, 29, 37, 44],
+
+function p(m)
+{console.log(m)};
+
+var numbers = shuffle([1,2,3,4,5,6,7,8,9]);
+    time = [0, 2, 5, 8, 11, 15, 19, 24, 29],
     count = numbers.length,
-    width = 600;
+    width = 1000;
     treeManager = new TreeManager(width, count);
 
 function getNumbers(){
@@ -41,6 +42,11 @@ function generate(){
             );
         }, 500*(index));
     });
+	
+	$("#gen").prop('disabled', true);
+    $("#bui").prop('disabled', false);
+    $("#sor").prop('disabled', true);
+	
 }
 
 function prebuild(){
@@ -76,7 +82,6 @@ function summy(arr){
 }
 
 
-
 function build(){
 
     var items = $(".copy-list-item"),
@@ -94,31 +99,35 @@ function build(){
 
             setTimeout(function(){
 
-                var coords = (treeManager.add($el.attr('value')));
-                coords = summy([[rX-elX, rY-elY]].concat(coords));
+                var coords = (treeManager.add($el.attr('value'))),
+					coords = summy([[rX-elX, rY-elY]].concat(coords));
 
                 $(coords).each(
                     function(j, coord){
                         setTimeout(
                             function(){
-                                $el.css('-webkit-transform', "translate("+
-                                (coord[0])+"px,"+
-                                (coord[1])+"px)");
-                                $el.find('span').text(coord[2]);
+								$el.css('-webkit-transform', "translate("+
+								(coord[0])+"px,"+
+								(coord[1])+"px)");
                             }, 1000*j);
                     }
-                )
-//            }, 5000*index);
+				)
+				
             }, 1000*time[index]);
         }
     );
+	
+	$("#gen").prop('disabled', true);
+    $("#bui").prop('disabled', true);
+    $("#sor").prop('disabled', false);
+	
 }
 
 function sort(){
     var result = treeManager.sortIter(),
         elemTmpl = $.templates("#Elem"),
 		sList = $('.sorted');
-
+		
     $(result).each(
         function(index, res){
 
@@ -129,6 +138,7 @@ function sort(){
                     return $( this ).attr( "value" ) ==res[0];
                })
             i.css('background-color', 'transparent');
+			
             for(var i=0; i<res[1]; i++){
                 sList.append(elemTmpl.render({
 					val:res[0]

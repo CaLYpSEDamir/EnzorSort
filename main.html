@@ -9,21 +9,17 @@
 </head>
 <body>
 	<div class="main-ctnr">
-
 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 		<script src="js/tree.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
 		<script src="js/jsrender.js" type="text/javascript"></script>
+		<script src="js/line.js" type="text/javascript"></script>
 			
 			<span class="instruction">Instruction:<br>Press OneByOne</span>
-			<!--shake-slow shake-constant shake-constant&#45;&#45;hover-->
-			<button class="generate-btn btn btn-warning" onclick="generate()">
+			<button id="gen" class="generate-btn btn btn-warning" onclick="generate()">
 				Generate LIST</button>
-			<!--<button class="clear-btn btn" onclick="clear()">Clear LIST</button>-->
-			<button class="build-btn btn" onclick="prebuild()">Build tree</button>
-			<!--<button class="remove-btn btn" onclick="clear()">Remove tree</button>-->
-			<button class="sort-btn btn  btn-default" onclick="sort()">Sorted list</button>
-			<!--<button class="haos-btn btn" onclick="haos()">ENZOR</button>-->
+			<button id="bui" class="build-btn btn" onclick="prebuild()">Build tree</button>
+			<button id="sor" onclick="sort()" class="sort-btn btn  btn-default">Sorted list</button>
 			
 		<div>
 			<div class="list">
@@ -31,18 +27,17 @@
 
 			<div class="list-copy">
 			</div>
+			
+			<div class="sorted">
+			</div>
 		</div>
 
 		<div class="tree">
 			<div id="r" class="root-item">
-				<!--<div class="table-item">-->
-					<!--<p><p>-->
-				<!--</div>-->
 			</div>
 		</div>
 
-		<div class="sorted">
-		</div>
+		
 	</div>
 
 	<script id="Elem" type="text/x-jsrender">
@@ -57,10 +52,8 @@
 		<div value='{{:val}}' class='copy-list-item animate slideUpRetourn'>
 			<div class='table-item'>
 				<p>{{:val}}</p>
-				<span></span>
 			</div>
 		</div>
 	</script>
-
 </body>
 </html>

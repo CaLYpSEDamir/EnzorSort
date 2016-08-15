@@ -1,37 +1,9 @@
 
-@keyframes outer-circle {
-    from { transform:rotate(0deg); }
-    to { transform:rotate(360deg); }
-}
-
-@keyframes inner-circle {
-    from { transform:rotate(0deg); }
-    to { transform:rotate(-360deg); }
-}
-
-.main-ctnr > .div {
-width: 100px;
-    margin: 20px auto 0;
-    animation: outer-circle 5s linear infinite;
-    transform-origin:50% 50px ;
-}
-
-.div > div {
-    animation: inner-circle 5s linear infinite;
-}
-
-
 body {
-    background1: url(../img/background.jpg) repeat top left fixed;
     background-color: rgb(204, 224, 51);
-    1background-color: white;
 }
 
 .main-ctnr {
-    background-color1: #2ab8ac;
-	background-color1: rgb(156, 85, 165);
-	background-color1: rgb(132, 180, 360);
-	background-color1: rgb(156, 152, 360);
     text-align: center;
     margin: 0 auto;
     max-width: 860px;
@@ -62,16 +34,6 @@ body {
 	padding: 6px 15px;
 	color: black;}
 
-.clear-btn{
-	margin-left: 20px;
-	margin-top: 140px;
-	position: absolute;
-	background: rgb(204, 224, 51);
-	left: 0;
-	border-color: black;
-	padding: 6px 28px;
-}
-
 .build-btn{
 	margin-left: 20px;
 	margin-top: 140px;
@@ -84,16 +46,6 @@ body {
 	border-color: black;
 }
 
-.remove-btn{
-	margin-left: 20px;
-	margin-top: 260px;
-	position: absolute;
-	left: 0;
-	background: rgb(87, 202, 221);
-	color: white;
-	padding: 6px 22px;
-}
-
 .sort-btn{
 	margin-left: 20px;
 	margin-top: 200px;
@@ -104,15 +56,6 @@ body {
 	border-color: cornsilk;
 }
 
-.haos-btn{
-	 margin-left: 20px;
-	margin-top: 380px;
-	position: absolute;
-	left: 0;
-	background-color: white;
-	padding: 6px 33px;
-	border-color: cadetblue;
-}
 .list{
 	display: inline-flex;
 	height: 80px;
@@ -122,14 +65,9 @@ body {
 	height: 40px;
 }
 
-.tree{
-	padding-top: 60px;
-}
-
 .sorted{
 	display: inline-flex;
 	height: 80px;
-	padding-top: 450px;
 }
 
 .list-item {
